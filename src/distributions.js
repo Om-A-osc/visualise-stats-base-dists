@@ -259,16 +259,10 @@ export const DISTRIBUTION_CONFIG = {
     label: "Pareto Type I",
     family: DISTRIBUTION_GROUPS.continuous,
     params: [
-      { key: "xm", label: "Scale", defaultValue: 1, min: 0.1, max: 8, step: 0.1 },
       { key: "alpha", label: "Shape", defaultValue: 3.5, min: 0.1, max: 10, step: 0.1 },
+      { key: "beta", label: "Scale", defaultValue: 1, min: 0.1, max: 8, step: 0.1 },
     ],
-    domainFromParams: ({ xm }) => makeRange(xm, xm * 12, xm / 25),
-  },
-  planck: {
-    label: "Planck",
-    family: DISTRIBUTION_GROUPS.discrete,
-    params: [{ key: "lambda", label: "Lambda", defaultValue: 0.75, min: 0.01, max: 6, step: 0.01 }],
-    support: makeRange(0, 20, 1),
+    domainFromParams: ({ beta }) => makeRange(beta, beta * 12, beta / 25),
   },
   poisson: {
     label: "Poisson",
@@ -315,28 +309,33 @@ export const DISTRIBUTION_CONFIG = {
     label: "Truncated Normal",
     family: DISTRIBUTION_GROUPS.continuous,
     params: [
-      { key: "mu", label: "Mean", defaultValue: 0, min: -10, max: 10, step: 0.1 },
-      { key: "sigma", label: "Std Dev", defaultValue: 1, min: 0.1, max: 8, step: 0.1 },
       { key: "a", label: "Lower Bound", defaultValue: -1.5, min: -10, max: 10, step: 0.1 },
       { key: "b", label: "Upper Bound", defaultValue: 1.5, min: -10, max: 10, step: 0.1 },
+      { key: "mu", label: "Mean", defaultValue: 0, min: -10, max: 10, step: 0.1 },
+      { key: "sigma", label: "Std Dev", defaultValue: 1, min: 0.1, max: 8, step: 0.1 },
     ],
     domainFromParams: ({ a, b }) => makeRange(a, b, Math.max(0.01, (b - a) / 140)),
-    normalize: ({ mu, sigma, a, b }) => ({
-      mu,
-      sigma,
+    normalize: ({ a, b, mu, sigma }) => ({
       a: Math.min(a, b),
       b: Math.max(a, b),
+      mu,
+      sigma,
     }),
   },
   tukey: {
     label: "Studentized Range",
     family: DISTRIBUTION_GROUPS.other,
     params: [
-      { key: "x", label: "Sample Count", defaultValue: 4, min: 2, max: 15, step: 1 },
+      { key: "r", label: "Means", defaultValue: 4, min: 2, max: 15, step: 1 },
       { key: "v", label: "Degrees of Freedom", defaultValue: 10, min: 1, max: 80, step: 1 },
+      { key: "nranges", label: "Ranges", defaultValue: 1, min: 1, max: 8, step: 1 },
     ],
     domain: makeRange(0, 10, 0.05),
-    normalize: ({ x, v }) => ({ x: Math.max(2, Math.round(x)), v: Math.max(1, Math.round(v)) }),
+    normalize: ({ r, v, nranges }) => ({
+      r: Math.max(2, Math.round(r)),
+      v: Math.max(1, Math.round(v)),
+      nranges: Math.max(1, Math.round(nranges)),
+    }),
   },
   uniform: {
     label: "Uniform",
@@ -393,7 +392,6 @@ export const DISTRIBUTION_ORDER = [
   "geometric",
   "hypergeometric",
   "negativeBinomial",
-  "planck",
   "poisson",
   "degenerate",
   "signrank",
