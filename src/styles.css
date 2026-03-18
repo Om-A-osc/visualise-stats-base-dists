@@ -296,11 +296,15 @@ code {
   align-self: start;
   max-height: calc(100vh - 48px);
   overflow-y: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .sidebar-title {
   font-size: 1.3rem;
   margin-bottom: 10px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero {
@@ -329,6 +333,8 @@ h2,
 h3,
 p {
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -361,7 +367,7 @@ h3 {
   padding: 14px 16px;
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 255, 0.7));
-  border: 2px solid var(--primary-blue);
+  border: 2px solid var(--primary-orange);
   transition: all 0.3s ease;
 }
 
@@ -394,12 +400,16 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 select,
@@ -416,19 +426,23 @@ input[type="number"] {
   background: rgba(255, 255, 255, 0.94);
   color: #10203a;
   transition: all 0.2s ease;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 select:hover,
 input[type="number"]:hover {
-  border-color: rgba(31, 142, 241, 0.3);
-  box-shadow: 0 4px 12px rgba(31, 142, 241, 0.08);
+  border-color: rgba(255, 122, 24, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 122, 24, 0.1);
 }
 
 select:focus,
 input[type="number"]:focus {
   outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(31, 142, 241, 0.1);
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(255, 122, 24, 0.15);
 }
 
 input[type="range"] {
@@ -636,22 +650,6 @@ output {
 }
 
 /* Logo Watermark */
-.logo-watermark {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.logo-image {
-  width: 120px;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 2px 4px rgba(31, 142, 241, 0.2));
-}
-
 .hero-banner-fullpage {
   flex: 1;
   display: flex;
@@ -702,6 +700,35 @@ output {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  animation: fadeInDown 0.8s ease-out 0.15s both;
+}
+
+.hero-subtitle a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-stdlib-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.hero-stdlib-logo:hover {
+  opacity: 1;
 }
 
 .hero-description-fullpage {
@@ -820,12 +847,6 @@ output {
   border-color: var(--primary-blue);
 }
 
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
-  display: inline-block;
-}
-
 .feature-card h3 {
   font-size: 1.3rem;
   margin: 16px 0 12px;
@@ -855,23 +876,23 @@ output {
   width: 48px;
   height: 48px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 255, 0.9) 100%);
-  border: 2px solid var(--primary-blue);
+  border: 2px solid var(--primary-orange);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-blue);
+  color: var(--primary-orange);
   transition: all 0.3s ease;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(31, 142, 241, 0.2);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(255, 122, 24, 0.2);
 }
 
 .back-to-home:hover {
-  background: var(--gradient-cool);
+  background: linear-gradient(135deg, var(--primary-orange), #ff9500);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(31, 142, 241, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 122, 24, 0.4);
   border-color: white;
 }
 
@@ -905,8 +926,6 @@ output {
   animation: none;
   overflow: visible;
   border: none;
-  border-top: 2px solid var(--primary-orange);
-  border-bottom: 2px solid var(--primary-blue);
   padding: 60px 24px;
   background: linear-gradient(135deg, rgba(255, 122, 24, 0.05) 0%, rgba(31, 142, 241, 0.05) 100%);
   margin: 0;
@@ -921,6 +940,9 @@ output {
   gap: 12px;
   background: transparent;
   margin-bottom: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .readme-header h3 {
@@ -944,8 +966,8 @@ output {
 .readme-content {
   flex: none;
   overflow: visible;
-  padding: 0;
-  max-width: 900px;
+  padding: 0 24px 60px 24px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1218,7 +1240,7 @@ output {
   background: linear-gradient(180deg, rgba(16, 32, 58, 0.98) 0%, rgba(10, 20, 40, 0.99) 100%);
   color: rgba(255, 255, 255, 0.9);
   padding: 60px 24px 40px;
-  border-top: 2px solid var(--primary-blue);
+  border-top: 2px solid var(--primary-orange);
   position: relative;
 }
 
@@ -1596,10 +1618,6 @@ output {
 
   .feature-card h3 {
     font-size: 1.1rem;
-  }
-
-  .feature-icon {
-    font-size: 2.5rem;
   }
 
   .installation-section {

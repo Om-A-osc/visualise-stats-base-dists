@@ -5,15 +5,17 @@ export default function Hero() {
 
   return (
     <main className="hero-page">
-      <div className="logo-watermark">
-        <img src="/image.png" alt="Stdlib Logo" className="logo-image" />
-      </div>
-
       <section className="hero-banner-fullpage">
         <div className="hero-container-fullpage">
           <div className="hero-content-fullpage">
             <p className="hero-eyebrow">Discover Statistical Distributions</p>
-            <h1 className="hero-title-fullpage">Interactive Distribution Explorer</h1>
+            <h1 className="hero-title-fullpage">Probability Distribution Visualization</h1>
+            <div className="hero-subtitle">
+              <p>Powered by</p>
+              <a href="https://stdlib.io/docs/api/latest" target="_blank" rel="noopener noreferrer">
+                <img src="/images/stdlib-logo.png" alt="Stdlib" className="hero-stdlib-logo" />
+              </a>
+            </div>
             <p className="hero-description-fullpage">
               Explore the documented @stdlib/stats/base/dists namespace with parameter-accurate plots, summary statistics, and method signatures. Interactive visualizations, real-time parameter updates, and detailed distribution information.
             </p>
@@ -21,7 +23,7 @@ export default function Hero() {
               className="hero-button"
               onClick={() => navigate("/dashboard")}
             >
-              <span>Open Dashboard</span>
+              <span>Visualizer</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -42,22 +44,18 @@ export default function Hero() {
           <h2>Powerful Features</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">📊</div>
               <h3>Interactive Charts</h3>
               <p>Real-time visualization of probability density functions and cumulative distribution functions</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">⚙️</div>
               <h3>Parameter Control</h3>
               <p>Adjust distribution parameters with sliders and see instant visual feedback</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">📈</div>
               <h3>Statistical Metrics</h3>
               <p>View comprehensive statistics including mean, variance, and quantile information</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">📚</div>
               <h3>Documentation</h3>
               <p>Access detailed documentation and method signatures for each distribution</p>
             </div>
@@ -119,13 +117,13 @@ const q = normal.quantile(0.95, 0, 1);`}</code></pre>
               <h4>Stdlib</h4>
               <nav className="footer-nav">
                 <a href="https://www.npmjs.com/package/@stdlib/stdlib" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>📦</span> NPM Package
+                  NPM Package
                 </a>
                 <a href="https://github.com/stdlib-js/stdlib" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>🔗</span> GitHub Repository
+                  GitHub Repository
                 </a>
                 <a href="https://stdlib.io/docs/api/latest" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>📖</span> Official Docs
+                  Official Docs
                 </a>
               </nav>
             </div>
@@ -134,10 +132,10 @@ const q = normal.quantile(0.95, 0, 1);`}</code></pre>
               <h4>This Project</h4>
               <nav className="footer-nav">
                 <a href="https://github.com/Om-A-osc/visualise-stats-base-dists" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>⭐</span> Source Code
+                  Source Code
                 </a>
                 <a href="https://github.com/Om-A-osc/visualise-stats-base-dists/issues" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>🐛</span> Report Issues
+                  Report Issues
                 </a>
               </nav>
             </div>
@@ -146,10 +144,10 @@ const q = normal.quantile(0.95, 0, 1);`}</code></pre>
               <h4>Resources</h4>
               <nav className="footer-nav">
                 <a href="https://en.wikipedia.org/wiki/Probability_distribution" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>📚</span> Probability Theory
+                  Probability Theory
                 </a>
                 <a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>🎓</span> Khan Academy
+                  Khan Academy
                 </a>
               </nav>
             </div>
@@ -158,10 +156,10 @@ const q = normal.quantile(0.95, 0, 1);`}</code></pre>
               <h4>Technologies</h4>
               <nav className="footer-nav">
                 <a href="https://react.dev" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>⚛️</span> React
+                  React
                 </a>
                 <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <span>⚡</span> Vite
+                  Vite
                 </a>
               </nav>
             </div>

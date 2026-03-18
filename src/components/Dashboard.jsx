@@ -291,7 +291,7 @@ export default function Dashboard() {
             <h2>{config.label}</h2>
           </div>
           <p className="lede">
-            Charts are sampled directly from stdlib functions with stable point density and explicit axes, so parameter updates stay responsive while the graph remains readable.
+            Charts are sampled directly from stdlib functions with stable point density and explicit axes. Scroll down to know more about this function.
           </p>
         </div>
 
