@@ -12,7 +12,7 @@ This tool provides an interactive platform to:
 - **Explore statistics** - Understand statistical properties of various distributions
 - **Learn interactively** - Adjust sliders and watch visualizations update instantly
 
-Powered by **stdlib** and leveraging the computational power of JavaScript, complex probability calculations run directly in your browser without server requests—making it fast, private, and accessible anywhere.
+Powered by **stdlib** and leveraging the computational power of JavaScript, complex probability calculations run directly in your browser without server requests making it fast, private, and accessible anywhere.
 
 ## Features
 
@@ -163,10 +163,8 @@ We welcome contributions from the community! Whether it's bug fixes, new feature
 
 ### Areas for Contribution
 
-- **New Distributions** - Add support for additional probability distributions
 - **UI Improvements** - Enhance visual design and user experience
 - **Mobile Optimization** - Improve responsive design
-- **Performance** - Optimize calculations and rendering
 - **Documentation** - Improve guides and comments
 - **Bug Fixes** - Report and fix issues
 

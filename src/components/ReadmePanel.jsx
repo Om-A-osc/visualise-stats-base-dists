@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
-// Dynamically load all README files from stdlib distributions
 const readmeModules = import.meta.glob(
   "../../node_modules/@stdlib/stats/base/dists/**/README.md",
   { as: "raw" }
 );
 
-// Create a map of distribution name to readme loader
 const readmeMap = {};
 for (const path in readmeModules) {
   const match = path.match(/dists\/(.*?)\/README\.md$/);
@@ -46,29 +44,29 @@ export default function ReadmePanel({ distributionKey, config }) {
     const generateFallback = () => {
       return `# ${config.label}
 
-## Overview
-This is the ${config.label} distribution from the @stdlib/stats/base/dists namespace.
+        ## Overview
+        This is the ${config.label} distribution from the @stdlib/stats/base/dists namespace.
 
-## Family
-**${config.family}**
+        ## Family
+        **${config.family}**
 
-## Parameters
-${config.params.map(p => `- **${p.label}** (${p.key}): Range [${p.min}, ${p.max}]`).join('\n')}
+        ## Parameters
+        ${config.params.map(p => `- **${p.label}** (${p.key}): Range [${p.min}, ${p.max}]`).join('\n')}
 
-## Information
-This interactive tool allows you to explore the properties of the ${config.label} distribution by adjusting its parameters in real-time.
+        ## Information
+        This interactive tool allows you to explore the properties of the ${config.label} distribution by adjusting its parameters in real-time.
 
-### Supported Methods
-The following methods are available for this distribution:
-- **pdf(x${config.params.length > 0 ? ', ...' : ''})** - Probability Density Function
-- **cdf(x${config.params.length > 0 ? ', ...' : ''})** - Cumulative Distribution Function  
-- **quantile(p${config.params.length > 0 ? ', ...' : ''})** - Quantile Function
+        ### Supported Methods
+        The following methods are available for this distribution:
+        - **pdf(x${config.params.length > 0 ? ', ...' : ''})** - Probability Density Function
+        - **cdf(x${config.params.length > 0 ? ', ...' : ''})** - Cumulative Distribution Function  
+        - **quantile(p${config.params.length > 0 ? ', ...' : ''})** - Quantile Function
 
-## How to Use
-1. Adjust the sliders on the left to change distribution parameters
-2. Watch the charts update in real-time
-3. View statistical metrics like mean, variance, and quantiles
-4. Check the function signatures for method details`;
+        ## How to Use
+        1. Adjust the sliders on the left to change distribution parameters
+        2. Watch the charts update in real-time
+        3. View statistical metrics like mean, variance, and quantiles
+        4. Check the function signatures for method details`;
     };
 
     loadReadme();
