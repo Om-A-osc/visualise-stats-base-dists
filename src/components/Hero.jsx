@@ -13,7 +13,7 @@ export default function Hero() {
             <div className="hero-subtitle">
               <p>Powered by</p>
               <a href="https://stdlib.io/docs/api/latest" target="_blank" rel="noopener noreferrer">
-                <img src="/images/stdlib-logo.png" alt="Stdlib" className="hero-stdlib-logo" />
+                <img src={`${import.meta.env.BASE_URL}images/stdlib-logo.png`} alt="Stdlib" className="hero-stdlib-logo" />
               </a>
             </div>
             <p className="hero-description-fullpage">
