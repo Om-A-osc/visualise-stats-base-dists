@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@stdlib/stats-base-dists": "^0.3.0",
+    "@stdlib/stdlib": "^0.3.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

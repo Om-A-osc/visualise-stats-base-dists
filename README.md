@@ -1,6 +1,6 @@
 # stdlib Distribution Showcase
 
-React-only showcase app for exploring statistical distributions exposed by `@stdlib/stats-base-dists`.
+React-only showcase app for exploring statistical distributions exposed by `@stdlib/stats/base/dists`.
 
 ## Scripts
 

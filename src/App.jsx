@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import stdlibDists from "@stdlib/stats-base-dists";
-import { getDistributionConfig } from "./distributions";
+import stdlibDists from "@stdlib/stats/base/dists";
+import { DISTRIBUTION_ORDER, getDistributionConfig } from "./distributions";
 import {
   barLayout,
   buildQuantiles,
@@ -63,10 +63,10 @@ function DistributionChart({ title, points, valueKey, color, discrete }) {
 function App() {
   const availableKeys = useMemo(
     () =>
-      Object.keys(stdlibDists).filter((key) => {
+      DISTRIBUTION_ORDER.filter((key) => {
         const methods = stdlibDists[key];
         return methods && typeof methods.cdf === "function" && (typeof methods.pdf === "function" || typeof methods.pmf === "function");
-      }).sort((left, right) => getDistributionConfig(left, stdlibDists[left]).label.localeCompare(getDistributionConfig(right, stdlibDists[right]).label)),
+      }),
     [],
   );
   const [selectedKey, setSelectedKey] = useState(availableKeys[0] ?? "normal");
@@ -98,7 +98,7 @@ function App() {
           <p className="eyebrow">Stdlib Stats Showcase</p>
           <h1>Interactive distribution explorer</h1>
           <p className="lede">
-            Visualize `@stdlib/stats-base-dists` distributions, inspect their shape, and compare the summary metrics stdlib exposes.
+            Visualize `@stdlib/stats/base/dists` distributions, inspect their shape, and compare the summary metrics stdlib exposes.
           </p>
         </div>
 
