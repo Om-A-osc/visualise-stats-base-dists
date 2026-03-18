@@ -644,6 +644,30 @@ output {
   color: #6d7b94;
 }
 
+/* Hero Header with Logo */
+.hero-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 255, 0.8) 100%);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-orange);
+  letter-spacing: -0.5px;
+}
+
 /* Hero Page Full Screen */
 .hero-page {
   min-height: 100vh;
